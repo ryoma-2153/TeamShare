@@ -14,8 +14,7 @@ import { useEffect, useState } from "react";
 export const Attendance = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [attendanceRate, setAttendanceRate] = useState({});
-  const [message, setMessage] = useState("");
-
+  const [memberMessages, setMemberMessages] = useState({});
   const fetchTeamMembers = async () => {
     if (!auth.currentUser) return;
 
@@ -49,13 +48,21 @@ export const Attendance = () => {
     }
   };
 
-  const clickMessage = () => {
+  const clickMessage = (userName) => {
     try {
-      setMessage("＊出欠登録が完了しました。");
+      // メッセージを更新する際に、ユーザー名をキーとしてメッセージを設定
+      setMemberMessages((prevMessages) => ({
+        ...prevMessages,
+        [userName]: "＊出欠登録が完了しました。",
+      }));
 
       setTimeout(() => {
-        setMessage("");
-      }, 30000);
+        // 一定時間が経過した後にメッセージを空にする
+        setMemberMessages((prevMessages) => ({
+          ...prevMessages,
+          [userName]: "",
+        }));
+      }, 3000);
     } catch (error) {
       console.error("出席情報の保存中にエラーが発生しました", error);
     }
@@ -130,7 +137,7 @@ export const Attendance = () => {
       });
       console.log("出席情報の保存に成功しました");
       calculateAttendanceRate();
-      clickMessage();
+      clickMessage(userName);
     } catch (error) {
       console.error("出席情報の保存中にエラーが発生しました", error);
     }
@@ -164,7 +171,7 @@ export const Attendance = () => {
       });
       console.log("欠席情報の保存に成功しました");
       calculateAttendanceRate();
-      clickMessage();
+      clickMessage(userName);
     } catch (error) {
       console.error("欠席情報の保存中にエラーが発生しました", error);
     }
@@ -192,7 +199,7 @@ export const Attendance = () => {
               return (
                 <VStack
                   key={member.userId}
-                  w={{ base: "140px", md: "300px" }}
+                  w={{ base: "140px", md: "260px" }}
                   h={{ base: "100px", md: "150px" }}
                   ml={{ base: "10px", md: "40px" }}
                   mt={"10px"}
@@ -241,7 +248,7 @@ export const Attendance = () => {
                     </Button>
                   </HStack>
                   <Text fontSize={"14px"} color={"green.500"}>
-                    {message}
+                    {memberMessages[member.userName] || ""}
                   </Text>
                 </VStack>
               );
@@ -268,7 +275,7 @@ export const Attendance = () => {
               return (
                 <HStack
                   key={member.userId}
-                  w={{ base: "140px", md: "300px" }}
+                  w={{ base: "140px", md: "260px" }}
                   h={{ base: "80px", md: "100px" }}
                   ml={{ base: "8px", md: "40px" }}
                   mt={"10px"}
