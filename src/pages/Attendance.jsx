@@ -247,7 +247,7 @@ export const Attendance = () => {
                       欠席
                     </Button>
                   </HStack>
-                  <Text fontSize={"14px"} color={"green.500"}>
+                  <Text fontSize={{base:"10px", md: "14px"}} color={"green.500"}>
                     {memberMessages[member.userName] || ""}
                   </Text>
                 </VStack>
@@ -275,22 +275,22 @@ export const Attendance = () => {
               return (
                 <HStack
                   key={member.userId}
-                  w={{ base: "140px", md: "260px" }}
+                  w={{ base: "150px", md: "260px" }}
                   h={{ base: "80px", md: "100px" }}
-                  ml={{ base: "8px", md: "40px" }}
+                  ml={{ base: "6px", md: "40px" }}
                   mt={"10px"}
                   shadow={"lg"}
                   borderRadius={"20px"}
                   bgColor={"white"}
                 >
                   <Text
-                    fontSize={{ base: "16px", md: "23px" }}
+                    fontSize={{ base: "15px", md: "23px" }}
                     ml={{ base: "8px", md: "25px" }}
                   >
                     {member.userName}
                   </Text>
                   <Text
-                    fontSize={{ base: "18px", md: "25px" }}
+                    fontSize={{ base: "17px", md: "25px" }}
                     ml={{ base: "15px", md: "30px" }}
                   >
                     {attendanceRate[member.userName] || "0%"}
