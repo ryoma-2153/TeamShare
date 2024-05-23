@@ -28,8 +28,22 @@ export const Goal = () => {
   const [goals, setGoals] = useState([]);
 
   const fetchGoals = async () => {
+    if (!auth.currentUser) return;
+
+    const userName = auth.currentUser.displayName;
+    const userId = auth.currentUser.uid;
+    const user = {
+      userId: userId,
+      userName: userName,
+    };
+
+
     try {
-      const querySnapshot = await getDocs(collection(db, "Groups"));
+      const q = query(
+        collection(db, "Groups"),
+        where("members", "array-contains", user)
+      );
+      const querySnapshot = await getDocs(q);
       const goalsData = [];
       querySnapshot.forEach((doc) => {
         const groupData = doc.data();
