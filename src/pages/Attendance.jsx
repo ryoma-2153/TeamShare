@@ -259,7 +259,7 @@ export const Attendance = () => {
         <VStack
           w={{ base: "90%", md: "80%" }}
           h={"100%"}
-          mb={"30px"}
+          mb={{base:"125px", md: "30px"}}
           pb={"30px"}
           borderRadius={"20px"}
           bgColor={"white"}
