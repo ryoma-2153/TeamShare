@@ -22,7 +22,7 @@
 
 ## デモンストレーション
 
-![アプリのデモ](public/images/TeamShare.gif)
+<img src="public/images/TeamShare.gif" alt="アプリのデモ" width="316" hight="400>
 
 ## データ構成
 - **Users**:
