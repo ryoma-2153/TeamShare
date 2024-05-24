@@ -15,13 +15,14 @@
    - **チームへの参加**: 参加するチームのIDを入力し、参加ボタンを押します。
 3. **チームページ**: 各チームページに移動し、チームの課題と目標の設定、スケジュール管理、出席登録を行います。
 
-## デモンストレーション
-
-![アプリのデモ](public/images/TeamShare.gif)
 
 ## プロジェクトのURL
 
 [https://orizinal-app-login.web.app/](https://orizinal-app-login.web.app/)
+
+## デモンストレーション
+
+![アプリのデモ](public/images/TeamShare.gif)
 
 ## データ構成
 - **Users**:
