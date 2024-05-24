@@ -17,7 +17,7 @@
 
 ## デモンストレーション
 
-![アプリのデモ](c:\Users\ryoma\OneDrive\ドキュメント\Teamシェア\public\images\TeamShare.gif)
+![アプリのデモ](public\images\TeamShare.gif)
 
 ## プロジェクトのURL
 
