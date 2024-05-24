@@ -17,7 +17,7 @@
 
 ## デモンストレーション
 
-![アプリのデモ](public\images\TeamShare.gif)
+![アプリのデモ](public/images/TeamShare.gif)
 
 ## プロジェクトのURL
 
